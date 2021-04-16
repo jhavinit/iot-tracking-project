@@ -1,0 +1,79 @@
+<!-- notifier container -->
+<notifier-container></notifier-container>
+
+<div class="row">
+    <div class="col-4">
+        <select class="form-control" style="font-size: 12px;" (change)="onDeviceSelect($event.target.value)">
+            <option value="Select device" disabled selected [value]='undefined'>
+                Select device
+            </option>
+            <option>
+                Device001
+            </option>
+            <option>
+                Device002
+            </option>
+            <option>
+                Device003
+            </option>
+        </select>
+    </div>
+</div>
+<br><br>
+
+<div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-4">
+        <h4 class="text-center">Temperature Chart</h4>
+        <div class="chart-wrapper" style="height:500px; margin-top:40px;">
+            <canvas baseChart class="chart" [datasets]="liveData['tempVal']['data']"
+                [labels]="liveData['tempVal']['label']" [options]="liveData['tempVal']['options']"
+                [colors]="liveData['tempVal']['colors']" [legend]="liveData['tempVal']['legend']"
+                [chartType]="liveData['tempVal']['type']"></canvas>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4">
+        <h4 class="text-center">Humidity Chart</h4>
+        <div class="chart-wrapper" style="height:500px; margin-top:40px;">
+            <canvas baseChart class="chart" [datasets]="liveData['humidity']['data']"
+                [labels]="liveData['humidity']['label']" [options]="liveData['humidity']['options']"
+                [colors]="liveData['humidity']['colors']" [legend]="liveData['humidity']['legend']"
+                [chartType]="liveData['humidity']['type']"></canvas>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4">
+        <h4 class="text-center">CO2 Chart</h4>
+        <div class="chart-wrapper" style="height:500px; margin-top:40px;">
+            <canvas baseChart class="chart" [datasets]="liveData['CO2']['data']" [labels]="liveData['CO2']['label']"
+                [options]="liveData['CO2']['options']" [colors]="liveData['CO2']['colors']"
+                [legend]="liveData['CO2']['legend']" [chartType]="liveData['CO2']['type']"></canvas>
+        </div>
+    </div>
+</div>
+
+<br><br>
+<div class="row">
+    <div class="col-12">
+        <ngx-gauge [type]="gaugeType" [value]="liveData['PM1']['gaugeValue']" [label]="liveData['PM1']['gaugeLabel']"
+            [append]="liveData['PM1']['gaugeAppendText']">
+        </ngx-gauge>
+        <ngx-gauge [type]="gaugeType" [value]="liveData['PM10']['gaugeValue']" [label]="liveData['PM10']['gaugeLabel']"
+            [append]="liveData['PM10']['gaugeAppendText']">
+        </ngx-gauge>
+        <ngx-gauge [type]="gaugeType" [value]="liveData['PM25']['gaugeValue']" [label]="liveData['PM25']['gaugeLabel']"
+            [append]="liveData['PM25']['gaugeAppendText']">
+        </ngx-gauge>
+        <ngx-gauge [type]="gaugeType" [value]="liveData['PM40']['gaugeValue']" [label]="liveData['PM40']['gaugeLabel']"
+            [append]="liveData['PM40']['gaugeAppendText']">
+        </ngx-gauge>
+        <ngx-gauge [type]="gaugeType" [value]="liveData['PM05']['gaugeValue']" [label]="liveData['PM05']['gaugeLabel']"
+            [append]="liveData['PM05']['gaugeAppendText']">
+        </ngx-gauge>
+    </div>
+</div>
+
+<br><br>
+<div class="row">
+    <div style="height: 900px; width: 100%;">
+        <div id="map"></div>
+    </div>
+</div>

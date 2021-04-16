@@ -1,0 +1,74 @@
+.my-primary-color {
+    color: #5e66cf;
+}
+
+.my-secondary-color {
+    color: #71d15e;
+}
+
+.my-red-color {
+    color: #df4c4c;
+}
+
+.my-green-color {
+    color: #71d15e;
+}
+
+.my-font-color {
+    color: #808080;
+}
+
+.my-font-back-color {
+    background-color: #f6f6f6;
+}
+
+.my-primary-back-color {
+    background-color: #5e66cf;
+}
+
+.my-secondary-back-color {
+    background-color: #71d15e;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.center-elem {
+    text-align: center;
+    align-self: center;
+}
+
+.center-content {
+    text-align: center;
+}
+
+.full-width-div {
+    margin-top: 5%;
+    position: absolute;
+    width: 95%;
+    left: 0;
+}
+
+.twoPadding {
+    padding: 2%;
+}
+
+.bottom-gap {
+    margin-bottom: 5%;
+}
+
+.loadingButton {
+    margin-top: 10px;
+}

@@ -1,0 +1,106 @@
+<!-- app header -->
+<app-header [navbarBrandRouterLink]="['/dashboard']" [fixed]="true" [navbarBrandFull]="{
+  src: 'assets/brand/logo-small-removebg.jpg',
+  width: 90,
+  height: 45,
+  alt: 'DIC'
+}" [navbarBrandMinimized]="{
+  src: 'assets/others/bars.svg',
+  width: 15, 
+  height: 15,
+  alt: 'DIC - TRAFFIC SENSING AND IT'
+}" [sidebarToggler]=false [asideMenuToggler]="'lg'">
+  <ul class="nav navbar-nav d-md-down-none" id="logo-sidebar">
+    <li class="nav-item px-3">
+      <img src="../../../assets/brand/logo-small-removebg.jpg" class="responsive myimg">
+    </li>
+  </ul>
+  <ul class="nav navbar-nav ml-auto my-font-color">
+    <li class="nav-item d-md-down-none my-font-color">
+      <div>Hello {{user['name']}}</div>
+    </li>
+
+    <li class="nav-item dropdown" dropdown placement="bottom right">
+      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
+        dropdownToggle (click)="(false)">
+        <div aria-hidden="true" style="font-size:1em;
+          width:2.5em;
+          height:2.5em;
+          line-height:2.5em;
+          text-align:center;
+          border-radius:50%;
+          background:#5e66cf;
+          vertical-align:middle;
+          color:white;
+          text-transform: capitalize;
+          margin-left: 1em;">
+          {{user['shortName']}}
+        </div>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+        <!-- logout -->
+        <a class="dropdown-item" (click)="onLogoutClick()" href="#" style="color: #2f7da4;"><i style="color: #2f7da4;"
+            class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+      </div>
+    </li>
+  </ul>
+</app-header>
+
+<!-- app body -->
+<div class="app-body">
+
+  <!-- left sidebar -->
+  <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized"
+    (minimizedChange)="toggleMinimize($event)">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
+    <app-sidebar-minimizer (click)="hideSidebarLogo()"></app-sidebar-minimizer>
+  </app-sidebar>
+
+  <!-- main content -->
+  <main class="main my-font-color">
+    <!-- Breadcrumbs -->
+    <cui-breadcrumb>
+      <li class="breadcrumb-menu">
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+          <a class="d-md-down-none" [innerHtml]="component['internetConn']"></a>
+        </div>
+      </li>
+    </cui-breadcrumb>
+
+    <div class="container-fluid">
+      <!-- notifier -->
+      <notifier-container></notifier-container>
+
+      <!-- router outlet -->
+      <router-outlet> </router-outlet>
+    </div>
+  </main>
+
+  <!-- right side nav bar -->
+  <app-aside [fixed]="true" [display]="false" [ngClass]="'test'">
+    <tabset>
+    </tabset>
+  </app-aside>
+</div>
+
+<!-- footer -->
+<app-footer>
+  <div class="my-font-color container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="copyright-text float-sm-none float-md-left float-lg-left">
+          <p>© {{component['copyYear']}}
+            <a href="http://dic.puchd.ac.in">DIC - TRAFFIC SENSING AND IT</a>. All rights reserved.
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="copyright-text float-sm-none float-md-right float-lg-right">
+          <p>
+            Verison: {{component['version']}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-footer>

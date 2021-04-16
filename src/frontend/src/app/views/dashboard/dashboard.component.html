@@ -1,0 +1,51 @@
+<!-- notifier container -->
+<notifier-container></notifier-container>
+
+<!-- loading -->
+<div class="center-container" *ngIf="component['loading'] === true; else loadMain">
+  <div class="center-elem">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="text-muted">Loading...</div>
+  </div>
+</div>
+
+<!-- main body -->
+<ng-template #loadMain>
+  <div class="animated fadeIn">
+
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div class="card shadow-lg my-secondary-color my-font-back-color">
+          <div class="card-block" style="padding: 5%;">
+            <h4 class="text-center">AIR POLLUTION DEVICE</h4>
+            <div class="text-center">
+              <img src="../../../assets/others/undraw_factory_dy0a.svg" class="responsive"
+                style="height: 220px; width: 150px;">
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-block my-primary-back-color" (click)="openSolution('/air-pollution')"><i
+                class="fa fa-rocket"></i> View solution</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div class="card shadow-lg my-secondary-color my-font-back-color">
+          <div class="card-block" style="padding: 5%;">
+            <h4 class="text-center">ANIMAL TRACKING DEVICE</h4>
+            <div class="text-center">
+              <img src="../../../assets/others/undraw_Map_dark_k9pw.svg" class="responsive"
+                style="height: 220px; width: 150px;">
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-block my-primary-back-color" (click)="openSolution('/animal-tracking')"><i
+                class="fa fa-rocket"></i> View solution</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

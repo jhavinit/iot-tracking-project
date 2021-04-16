@@ -1,0 +1,9 @@
+/docs
+/videos
+
+/src/mqtt-pub-sub
+/src/frontend/node_modules
+/src/backend/config/node_modules
+/src/backend/apis/auth/node_modules
+/src/backend/apis/livedata-air-pollution/node_modules
+/src/backend/public

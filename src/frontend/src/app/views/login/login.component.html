@@ -1,0 +1,121 @@
+<!-- notifier container -->
+<notifier-container></notifier-container>
+
+<!-- main body -->
+<div class="animated fadeIn my-font-color twoPadding">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 mx-auto" *ngIf="component['register'] === false">
+      <!-- header -->
+      <div class="text-center">
+        <img src="../../../assets/brand/logo-small-removebg-preview.png" width="180px" style="margin-bottom: 5%;">
+        <h6 class="lead bottom-gap">Sign in to DIC IOT DASHBOARD</h6>
+      </div>
+
+      <!-- form -->
+      <div class="card">
+        <div class="card-body">
+          <form (submit)="login()">
+            <!-- username -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="background-color: #252eaf; color: white;"><i
+                    class="fa fa-user-circle"></i></span>
+              </div>
+              <input type="text" class="form-control input_user" [(ngModel)]="authCredentials['username']"
+                name="authCredentials['username']" value="" placeholder="Username">
+            </div>
+
+            <!-- password -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="background-color: #2d36af; color: white;"><i
+                    class="fa fa-key"></i></span>
+              </div>
+              <input type="password" class="form-control input_pass" value="" placeholder="Password"
+                [(ngModel)]="authCredentials['password']" name="authCredentials['password']" autocomplete="on">
+            </div>
+
+            <!-- submit -->
+            <div class="input-group">
+              <button [disabled]="authCredentials['loading']" type="submit" value="Login"
+                class="btn btn-block my-secondary-back-color">
+                Sign in
+                &nbsp; <i *ngIf="authCredentials['loading']" class="fa fa-circle-o-notch fa-spin loadingButton"
+                  aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: 10%;">
+        <div class="card-header text-center" style="background-color: white;">
+          New ? <a class="pointer" (click)="component['register'] = true" style="color: #252eaf;">Create account</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mx-auto" *ngIf="component['register'] === true">
+      <!-- header -->
+      <div class="text-center">
+        <img src="../../../assets/brand/logo-small-removebg-preview.png" width="180px" style="margin-bottom: 5%;">
+        <h6 class="lead bottom-gap">Create account - DIC IOT DASHBOARD</h6>
+      </div>
+
+      <!-- form -->
+      <div class="card">
+        <div class="card-body">
+          <form (submit)="registerUser()">
+            <!-- name -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="background-color: #252eaf; color: white;"><i
+                    class="fa fa-user-circle"></i></span>
+              </div>
+              <input type="text" class="form-control input_user" [(ngModel)]="registerUserDetails['name']"
+                name="registerUserDetails['name']" value="" placeholder="Name">
+            </div>
+
+            <!-- username -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="background-color: #252eaf; color: white;"><i
+                    class="fa fa-user-circle"></i></span>
+              </div>
+              <input type="text" class="form-control input_user" [(ngModel)]="registerUserDetails['username']"
+                name="registerUserDetails['username']" value="" placeholder="Username">
+            </div>
+
+            <!-- password -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="background-color: #2d36af; color: white;"><i
+                    class="fa fa-key"></i></span>
+              </div>
+              <input type="password" class="form-control input_pass" value="" placeholder="Password"
+                [(ngModel)]="registerUserDetails['password']" name="registerUserDetails['password']" autocomplete="on">
+            </div>
+
+            <!-- submit -->
+            <div class="input-group">
+              <button [disabled]="registerUserDetails['loading']" type="submit" value="Login"
+                class="btn btn-block my-secondary-back-color">
+                Register
+                &nbsp; <i *ngIf="registerUserDetails['loading']" class="fa fa-circle-o-notch fa-spin loadingButton"
+                  aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: 10%;">
+        <div class="card-header text-center" style="background-color: white;">
+          Already registered? <a (click)="component['register'] = false" style="color: #252eaf;"
+            class="pointer">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
